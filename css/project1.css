@@ -1,0 +1,55 @@
+
+
+/*to check the size of the bootstrap divs
+div {
+	border-color: #222;
+	border-width: 4px;
+	border-style: solid;
+}*/
+
+body {
+  background: #e9e7dd;
+}
+
+/*#colors1 {
+	  background: #fff;
+}
+
+#colors2 {
+	background: #fff;
+}*/
+
+
+/*#collapseDescription {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 15;
+}
+*/
+
+#welcome {
+	text-align: center;
+}
+
+
+#googleTrendsCanvas {
+	text-align: center;
+}
+
+
+@media(max-width:767px){
+	body {
+/*		min-width: 600px;*/
+	}
+}
+
+
+
+/*
+@media(max-width:767px){} xs
+@media(min-width:768px){} sm
+@media(min-width:992px){} md
+@media(min-width:1200px){} lg
+*/
