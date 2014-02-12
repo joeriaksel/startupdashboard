@@ -1,0 +1,79 @@
+
+
+body {
+  background: #e9e7dd;
+}
+
+#searchResults {
+	display: none;
+}
+
+#welcome {
+}
+
+/*#collapseDescription {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 15;
+}
+*/
+
+
+#welcomeForm {
+	max-width: 450px;
+	text-align: center;
+/*	position: relative;*/
+	margin: 0 auto;
+}
+
+#welcomeTitle {
+	max-width: 450px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 25%;
+}
+
+#welcomeInputDiv {
+	max-width: 300px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*
+.navbar navbar-default {
+	display: none:;
+}
+
+*/
+
+#googleTrendsCanvas {
+	text-align: center;
+}*/
+
+
+/*limit page from becoming smaller than trends chart */
+@media(max-width:767px){
+	body {
+/*		min-width: 600px;*/
+	}
+}
+
+
+
+/* bootstrap media sizes
+@media(max-width:767px){} xs
+@media(min-width:768px){} sm
+@media(min-width:992px){} md
+@media(min-width:1200px){} lg
+*/
+
+/* big borders to clarify div sizes and positions
+div {
+	border-color: #222;
+	border-width: 4px;
+	border-style: solid;
+}*/

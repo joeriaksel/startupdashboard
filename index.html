@@ -1,120 +1,215 @@
-master and 3rdsidebranch branch edit and merge
-hallo
-hallo2
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Startup dashboard</title>
+        <title>Vemondo - the Global Startup Dashboard</title>
         <meta charset="utf-8">
-        <meta name="description" content="Startup company overview">
-        <meta name="keywords" content="Startup, startups, venture, vc, angel, angels, funding, early stage">
+        <meta name="description" content="Vemondo is my first web project as part of the RocketU bootcamp. The site provides a dashboard with data of startups from across the world.">
+        <meta name="keywords" content="Startup, startups, venture, vc, angel, angels, funding, early stage, RocketU, Rocket-Space, RocketSpace">
         <meta name="author" content="Joeri Vankeirsbilck">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/project1.css">
+        <link rel="stylesheet" type="text/css" href="css/vemondo.css">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/modernizr.js"></script>
-        <script type="text/javascript" src="js/project1.js"></script>
+        <script type="text/javascript" src="js/vemondo.js"></script>
         <script type="text/javascript" src="js/mustache.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-38908612-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        </script>
     </head>
 
     <body>
+
          
-         <nav class="navbar navbar-default" role="navigation">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      
+      <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                  <div class="navbar-header">
+		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      		          <span class="sr-only">Toggle navigation</span>
+      		          <span class="icon-bar"></span>
+      		          <span class="icon-bar"></span>
+      		          <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand" href="#">Startup Dashboard</a>
+		      </div>
 
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="#">Startup Dashboard</a>
+		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		          <form class="navbar-form navbar-right" role="search">
+		                <div class="form-group">
+		                      <input type="text" class="form-control" id="companyName" placeholder="Search companies">
+		                </div>
+		                      <button type="submit" class="btn btn-default" id="getCompanyName">Go!</button>
+		          </form>
 		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <form class="navbar-form navbar-right" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" id="companyName" placeholder="Search companies">
-		        </div>
-		        <button type="submit" class="btn btn-default" id="getCompanyName">Go!</button>
-		      </form>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+		</div>
+	</nav>
 
 
-             <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="col-sm-7" id="colors1">
+
+      <div class="container" id="welcome">
+                  <div id="welcomeTitle">
+                        <form class="form-search" role="form" id="welcomeForm">
+                        <h2 class="form-search-heading">Find  information on any startup</h2>
+                        <div id="welcomeInputDiv">
+                              <input type="text" class="form-control" id="companyName2" placeholder="Search companies" required autofocus>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary" id="getCompanyName2">Go!</button>
+                        </form>
+                  </div>
+      </div>
+
+
+
+      <div class="container" id="searchResults">
+            <div class="row">
+                  <div class="col-xs-9 col-md-7" id="colors1">
                         <h3 id="companyTitle">Company</h3>
-                        <h4>Summary</h4>
-                            <p id="companySummary"></p>
-                        <h4>Description</h4>
-                            <p id="companyDescription"></p>
-                    </div>
-                    <div class="col-sm-5" id="quickFacts">
-                    	<div class="row-fluid">
+                        <h5 id="companySummary">Summary</h5>
+                  </div>
 
-							<!-- Begin MailChimp Signup Form -->
-							<div class="input-group">
-								<div id="mc_embed_signup">
-								<form action="http://joerivankeirsbilck.us3.list-manage1.com/subscribe/post?u=b1745546899e3764f28f431fe&amp;id=c1296dc485" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-									
-								<div class="mc-field-group">
-								<!-- 	<label for="mce-EMAIL">Email Address </label> -->
-									<input type="email" value="" name="EMAIL" class="required email form-control" placeholder = "Enter your email here!!!!" id="mce-EMAIL">
 
-								</div>
-									<div id="mce-responses" class="clear">
-										<div class="response" id="mce-error-response" style="display:none"></div>
-										<div class="response" id="mce-success-response" style="display:none"></div>
-									</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-								    <div style="position: absolute; left: -5000px;"><input type="text" name="b_b1745546899e3764f28f431fe_c1296dc485" value=""></div>
-									<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default"></div>
-								</form>
-								</div>
-							</div>
-							<!--End mc_embed_signup-->
-                    	</div>
+                  <div class="col-xs-3 col-md-5">
+                                    <!-- Begin MailChimp Signup Form -->
+                                    <div class="input-group">
+                                          <div id="mc_embed_signup">
+                                          <form action="http://joerivankeirsbilck.us3.list-manage1.com/subscribe/post?u=b1745546899e3764f28f431fe&amp;id=c1296dc485" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                                     
+                                          <div class="mc-field-group">
+                                          <!--  <label for="mce-EMAIL">Email Address </label> -->
+                                                <input type="email" value="" name="EMAIL" class="required email form-control" placeholder = "Enter your email here" id="mce-EMAIL">
+                                          </div>
+
+                                                <div id="mce-responses" class="clear">
+                                                      <div class="response" id="mce-error-response" style="display:none"></div>
+                                                      <div class="response" id="mce-success-response" style="display:none"></div>
+                                                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                <div style="position: absolute; left: -5000px;"><input type="text" name="b_b1745546899e3764f28f431fe_c1296dc485" value=""></div>
+                                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default"></div>
+                                          </form>
+                                          </div>
+                                    </div>
+                                    <!--End mc_embed_signup-->
+                  </div>
+            </div>
+
+
+
+
+            <div class="row">
+                  <div class="col-md-7">
+                        <div class="panel-group" id="accordionDescription">
+                              <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordionDescription" href="#collapseDescription">Description
+                                          </a>
+                                          </h4>
+                                    </div>
+                                    <div id="collapseDescription" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                          <p id="companyDescription"></p>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+
+
+                  <div class="col-md-5" id="quickFacts">
 
                     	<div class="row-fluid" id="colors2">
-	                        <h4>Quick Facts</h4>
-	                            <p id="companySector">Tags: </p>
-	                            <p id="companyLocation">Location: </p>
-	                            <p id="companyFounded">Founded: </p>
-	                            <p id="companyEmployees">Employees: </p>
-	                            <p id="companyFunding">Funding: </p>
-	                        <!--     <p id="companyConnections">Mutual Connections: </p> -->
-	                            <p id="companyURL">Website: </p>
+                              <div class="panel-group" id="accordionFacts">
+                                    <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordionFacts" href="#collapseFacts">
+                                                  Quick Facts
+                                                </a>
+                                                </h4>
+                                          </div>
+                                          <div id="collapseFacts" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                      <p id="companySector">Tags: </p>
+                                                      <p id="companyLocation">Location: </p>
+                                                      <p id="companyFounded">Founded: </p>
+                                                      <p id="companyEmployees">Employees: </p>
+                                                      <p id="companyFunding">Funding: </p>
+                                                  <!--     <p id="companyConnections">Mutual Connections: </p> -->
+                                                      <p id="companyURL">Website: </p>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="col-sm-7" id="googleTrendsCanvas">
-                        <h4>GoogleTrends</h4>
-                    </div>
-                    <div class="col-sm-5">
+                  </div>
+            </div>
+
+
+
+            <div class="row">
+                  <div class="col-xs-12 col-md-7">
+                        <div class="panel-group" id="accordionTrends">
+                              <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordionTrends" href="#collapseTrends">GoogleTrends
+                                          </a>
+                                          </h4>
+                                    </div>
+                                    <div id="collapseTrends" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                                <div id="googleTrendsCanvas"></div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+
+                  <div class="col-md-5">
                   <!--       <h4>News</h4> -->
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="col-sm-7">
-                        <h4>Jobs</h4>
-                        <div id="jobsCanvas">
+                  </div>
+            </div>
+                
+
+
+            <div class="row">
+                  <div class="col-xs-12 col-md-7">     
+                        <div class="panel-group" id="accordionJobs">
+                              <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordionJobs" href="#collapseJobs">Jobs
+                                          </a>
+                                          </h4>
+                                    </div>
+                                    <div id="collapseJobs" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                                <div id="jobsCanvas"></div>
+                                          </div>
+                                    </div>
+                              </div>
                         </div>
-                    </div>
-                    <div class="col-sm-5">
-                      <!--   <h4>Twitter</h4> -->
-                    </div>
-                </div>
-             </div>
+                  </div>
+
+
+                  <div class="col-md-5">
+                  <!--   <h4>Twitter</h4> -->
+                  </div>
+            </div>
+            
+
+      </div>
 
     </body>
 </html>
@@ -125,7 +220,7 @@ hallo2
 </div>
         
 <div id="footer">   
-	<div class="container-fluid">
+	<div class="container">
         <p class="text-muted">Startup Dashboard 2014</p>
     </div>
 </div>
