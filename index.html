@@ -36,12 +36,13 @@
       <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                   <div class="navbar-header">
+              <div id="searchHide">
 		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       		          <span class="sr-only">Toggle navigation</span>
       		          <span class="icon-bar"></span>
       		          <span class="icon-bar"></span>
       		          <span class="icon-bar"></span>
-		          </button>
+		          </button> </div>
 		          <a class="navbar-brand" href="#">Startup Dashboard</a>
 		      </div>
 
@@ -66,6 +67,20 @@
                               <input type="text" class="form-control" id="companyName2" placeholder="Search companies" required autofocus>
                         </div>
                         <button type="submit" class="btn btn-lg btn-primary" id="getCompanyName2">Go!</button>
+                        </form>
+                  </div>
+      </div>
+
+
+
+      <div class="container" id="errorMessage">
+                  <div id="errorTitle">
+                        <form class="form-search" role="form" id="errorForm">
+                        <h2 class="form-search-heading" id="error">Well, this is embarrassing.<br>Find <span id="almost">almost</span> any startup, just not this one!<br>Please try searching for another company.</h2>
+                        <div id="errorInputDiv">
+                              <input type="text" class="form-control" id="companyName3" placeholder="Search companies" required autofocus>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary" id="getCompanyName3">Go!</button>
                         </form>
                   </div>
       </div>

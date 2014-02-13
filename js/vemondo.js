@@ -7,12 +7,23 @@ $(document).ready(function() {
 		// prevents html from refreshing
 		event.preventDefault();
 
-		// hides welcome screen and shows results page
-		$('#searchResults').css("display", "block");
-		$('#welcome').css("display", "none");
-
 		// define variable to search for
 		var companyName = $('#companyName2').val();
+
+		// run search
+		runSearch(companyName);
+	});
+
+
+
+	// event handler for error screen
+	$('#getCompanyName3').click(function(){
+		
+		// prevents html from refreshing
+		event.preventDefault();
+
+		// define variable to search for
+		var companyName = $('#companyName3').val();
 
 		// run search
 		runSearch(companyName);
@@ -40,26 +51,45 @@ $(document).ready(function() {
 
 
 	function runSearch(companyName){			
-		    // console.log(companyName);
 
 		    // Make a call to the  API to get data
 		    $.ajax({
 					type: "GET",    	
 					    // crunchbase look up company profile
-						// url: 'http://api.crunchbase.com/v/1/company/' + companyName + '.js?api_key=t64qktqmy2s3hyq6g3g5cazf',
 						url: 'http://jsonp.jit.su/?url=http%3A%2F%2Fapi.crunchbase.com%2Fv%2F1%2Fcompany%2F' + companyName + '.js%3Fapi_key%3Dt64qktqmy2s3hyq6g3g5cazf',
 						dataType: "jsonp",
 						error: function(jqXHR, textStatus, errorThrown) {
+						
+							// hides welcome screen and results page, shows error screen	
+							$('#errorMessage').css("display", "block");
+							$('#searchResults').css("display", "none");
+							$('#welcome').css("display", "none");
+
+							// hides the search in nav bar
+							$('#searchHide').css("display", "none");
+							$('#bs-example-navbar-collapse-1').css("display", "none");
+
+							// reports error message back to user
 							if (jqXHR.status === 404){
-								$('#companyTitle').html('This company is not yet in our database.');
+								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one! Please try searching for another company.');
 							} else if (jqXHR.status === 400) {
-								$('#companyTitle').html('This company is not yet in our database.');
+								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one! Please try searching for another company.');
 							} else {
-								$('#companyTitle').html('The server is not responding, please try again later.');
+								$('#error').html('Well, this is embarrassing.<br>The server is not responding, please try again later.');
 							}
 						},
 			            success: function(theCompany) {
-			            	// console.log(theCompany);
+
+							// hides welcome screen and error page, shows results page	
+							$('#searchResults').css("display", "block");
+							$('#errorMessage').css("display", "none");
+							$('#welcome').css("display", "none");
+							
+							// shows the search in nav bar
+							$('#searchHide').css("display", "block");
+							$('#bs-example-navbar-collapse-1').css("display", "block");
+
+							// calls the other functions
 			            	displayCompanyProfile(theCompany);
 			            	googleTrends(companyName);
 			            	getJobs(companyName);

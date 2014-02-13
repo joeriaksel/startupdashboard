@@ -8,23 +8,27 @@ body {
 	display: none;
 }
 
+#errorMessage {
+	display: none;
+}
+
+/* navbar search field hidden when welcome screen is shown */
+#searchHide, #bs-example-navbar-collapse-1 {
+	display: none;
+}
+
 #welcome {
 }
-
-/*#collapseDescription {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 15;
-}
-*/
-
 
 #welcomeForm {
 	max-width: 450px;
 	text-align: center;
-/*	position: relative;*/
+	margin: 0 auto;
+}
+
+#errorForm {
+	max-width: 600px;
+	text-align: center;
 	margin: 0 auto;
 }
 
@@ -35,7 +39,14 @@ body {
 	padding-top: 25%;
 }
 
-#welcomeInputDiv {
+#errorTitle {
+	max-width: 600px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 25%;
+}
+
+#welcomeInputDiv, #errorInputDiv {
 	max-width: 300px;
 	text-align: center;
 	margin: 0 auto;
@@ -43,12 +54,10 @@ body {
 	padding-bottom: 10px;
 }
 
-/*
-.navbar navbar-default {
-	display: none:;
+#almost {
+	font-style: italic;
 }
 
-*/
 
 #googleTrendsCanvas {
 	text-align: center;
@@ -71,7 +80,7 @@ body {
 @media(min-width:1200px){} lg
 */
 
-/* big borders to clarify div sizes and positions
+/* borders to clarify div sizes and positions
 div {
 	border-color: #222;
 	border-width: 4px;
