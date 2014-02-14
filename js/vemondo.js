@@ -118,7 +118,7 @@ $(document).ready(function() {
 					console.log(res);
 
 					for (i in res) {
-						var indivTag = res[i]
+						var indivTag = res[i];
 						$('#companySector').append('<span class="tagsSpan"><button type="button" class="btn btn-primary btn-xs">'+indivTag+'</button> </span>');
 					}
 
