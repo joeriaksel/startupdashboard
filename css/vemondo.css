@@ -2,6 +2,29 @@
 
 body {
   background: #e9e7dd;
+
+  /* Margin bottom by footer height */
+/*  margin-bottom: 30px;*/
+/*  font-family:"Fuller Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size:16px;*/
+}
+
+#blue {
+	color:#2b71b8;
+}
+
+/*#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+   Set the fixed height of the footer here 
+  height: 30px;
+  background-color: #f5f5f5;
+  text-align: right;
+}*/
+
+#footer p {
+/*	padding-top: 5px;*/
 }
 
 #searchResults {
@@ -13,11 +36,8 @@ body {
 }
 
 /* navbar search field hidden when welcome screen is shown */
-#searchHide, #bs-example-navbar-collapse-1 {
-	display: none;
-}
-
-#welcome {
+ #formHide {
+ 	display:none;
 }
 
 #welcomeForm {
@@ -61,17 +81,25 @@ body {
 
 #googleTrendsCanvas {
 	text-align: center;
-}*/
-
-
-/*limit page from becoming smaller than trends chart */
-@media(max-width:767px){
-	body {
-/*		min-width: 600px;*/
-	}
 }
 
 
+/* hide trends chart below width:600px */
+@media (max-width:600px){
+	#trendsRow{
+		display: none;
+	}
+}
+
+@media (max-width: 600px){
+	#chimpSert{
+/*		display: none;*/
+	}
+}
+
+#chimpSert {
+	margin-bottom: 20px;
+}
 
 /* bootstrap media sizes
 @media(max-width:767px){} xs

@@ -67,13 +67,14 @@ $(document).ready(function() {
 
 							// hides the search in nav bar
 							$('#searchHide').css("display", "none");
-							$('#bs-example-navbar-collapse-1').css("display", "none");
+							$('#navcollapse1').css("display", "none");
+							// $('#formHide').css("display", "none");
 
 							// reports error message back to user
 							if (jqXHR.status === 404){
-								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one! Please try searching for another company.');
+								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one...<br>Please try searching for another company.');
 							} else if (jqXHR.status === 400) {
-								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one! Please try searching for another company.');
+								$('#error').html('Well, this is embarrassing.<br>Find <span id="almost">almost </span>any startup, just not this one...<br>Please try searching for another company.');
 							} else {
 								$('#error').html('Well, this is embarrassing.<br>The server is not responding, please try again later.');
 							}
@@ -86,8 +87,7 @@ $(document).ready(function() {
 							$('#welcome').css("display", "none");
 							
 							// shows the search in nav bar
-							$('#searchHide').css("display", "block");
-							$('#bs-example-navbar-collapse-1').css("display", "block");
+							$('#formHide').show();
 
 							// calls the other functions
 			            	displayCompanyProfile(theCompany);
@@ -176,9 +176,9 @@ $(document).ready(function() {
 							url: 'http://jsonp.jit.su/?url=http%3A%2F%2Fapi.adzuna.com%3A80%2Fv1%2Fapi%2Fjobs%2Fgb%2Fsearch%2F1%3Fapp_id%3D15020c9a%26app_key%3D1815c85db70a2acdfcc2695cd24dbbd7%26company%3D' + companyName,
 							error: function(jqXHR, textStatus, errorThrown) {
 								if (jqXHR.status === 404){
-									$('#jobsCanvas').html('No jobs were found for this company. Our jobs database currently holds jobs in the UK only. Please check back soon.');
+									$('#jobsCanvas').html('No jobs were found for this company. Our jobs database currently holds jobs in the UK only. Please subscribe to our newsletter to stay informed of new features.');
 								} else if (jqXHR.status === 400) {
-									$('#jobsCanvas').html('No jobs were found for this company. Our jobs database currently holds jobs in the UK only. Please check back soon.');
+									$('#jobsCanvas').html('No jobs were found for this company. Our jobs database currently holds jobs in the UK only. Please subscribe to our newsletter to stay informed of new features.');
 								} else {
 									$('#jobsCanvas').html('Unfortunately the server is having troubles, please try again later.');
 								}
