@@ -40,9 +40,6 @@ $(document).ready(function() {
 		// define variable to search for
 		var companyName = $('#companyName').val();
 		
-		// remove all job listings on search page
-		$('#jobsCanvas').html('');
-
 		// run search
 		runSearch(companyName);
 	});
@@ -66,8 +63,6 @@ $(document).ready(function() {
 							$('#welcome').css("display", "none");
 
 							// hides the search in nav bar
-							$('#searchHide').css("display", "none");
-							$('#navcollapse1').css("display", "none");
 							// $('#formHide').css("display", "none");
 
 							// reports error message back to user
@@ -81,6 +76,10 @@ $(document).ready(function() {
 						},
 			            success: function(theCompany) {
 
+							// remove all job listings and industry tags on search page
+							$('#jobsCanvas').html('');
+							$('#companySector').html('');
+		
 							// hides welcome screen and error page, shows results page	
 							$('#searchResults').css("display", "block");
 							$('#errorMessage').css("display", "none");
@@ -114,7 +113,15 @@ $(document).ready(function() {
 				}
 
 				if (theCompany.tag_list) {
-					$('#companySector').html('Tags: ' + theCompany.tag_list);
+					var str = theCompany.tag_list;
+					var res = str.split(", ");
+					console.log(res);
+
+					for (i in res) {
+						var indivTag = res[i]
+						$('#companySector').append('<span class="tagsSpan"><button type="button" class="btn btn-primary btn-xs">'+indivTag+'</button> </span>');
+					}
+
 				} else {
 					$('#companySector').html('Tags: -');
 				}
@@ -147,7 +154,7 @@ $(document).ready(function() {
 				}
 
 				if (theCompany.homepage_url) {
-					$('#companyURL').html('Website: ' + theCompany.homepage_url);
+					$('#companyURL').html('Website: <a href="'+ theCompany.homepage_url + '" target="_blank">' + theCompany.homepage_url + '</a>');
 				} else {
 					$('#companyURL').html('Website: -');
 				}
@@ -184,12 +191,13 @@ $(document).ready(function() {
 								}
 							},
 				            success: function(theJobs) {
-				            
 					            function jobsTable(theJobs){
 					            	for (var i in theJobs.results) {
 										var jobTitle = theJobs.results[i].title;
+										var jobRedirect = theJobs.results[i].redirect_url;
 
-										$('#jobsCanvas').append(jobTitle + '<br>');
+										$('#jobsCanvas').append('<a href="'+ jobRedirect + '" target="_blank">' + jobTitle + '</a><br>');
+										// $('#jobsCanvas').append(jobTitle + '<br>');
 					            	}
 					            }
 					            jobsTable(theJobs);

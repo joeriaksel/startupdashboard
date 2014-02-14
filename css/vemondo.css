@@ -78,6 +78,10 @@ body {
 	font-style: italic;
 }
 
+#companyTitle, #companySummary {
+	padding-left: 15px;
+}
+
 
 #googleTrendsCanvas {
 	text-align: center;
@@ -91,14 +95,14 @@ body {
 	}
 }
 
-@media (max-width: 600px){
-	#chimpSert{
-/*		display: none;*/
-	}
-}
-
 #chimpSert {
 	margin-bottom: 20px;
+}
+
+.tagsSpan {
+	padding-bottom: 4px;
+	padding-right: 4px;
+	display: inline-block;
 }
 
 /* bootstrap media sizes
