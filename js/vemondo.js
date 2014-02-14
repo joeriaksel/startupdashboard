@@ -79,7 +79,7 @@ $(document).ready(function() {
 							// remove all job listings and industry tags on search page
 							$('#jobsCanvas').html('');
 							$('#companySector').html('');
-		
+
 							// hides welcome screen and error page, shows results page	
 							$('#searchResults').css("display", "block");
 							$('#errorMessage').css("display", "none");
@@ -123,7 +123,7 @@ $(document).ready(function() {
 					}
 
 				} else {
-					$('#companySector').html('Tags: -');
+					$('#companySector').html('');
 				}
 
 
