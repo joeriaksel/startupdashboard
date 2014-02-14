@@ -1,0 +1,10 @@
+My very first web app after just a few weeks of programming, front-end only for the time being.
+
+This is a bootstrapped search page that has 3 states:
+
+Welcome page: with search button
+Error page: in case the search throws an error, this returns the error description
+Search results: this returns information on the startup, a Google Trends chart, and jobs (UK only for now)
+API's used: Crunchbase (startup data) and Adzuna (jobs).
+
+Any issues/suggestions/questions message me on Twitter @jovanki
